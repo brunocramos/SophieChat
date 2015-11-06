@@ -1,0 +1,11 @@
+<section ng-controller="HomeController" ng-init="checkAuthentication()">
+  <h1>Sophie Chat</h1>
+
+  <div ng-if="!isAuthenticated()">
+    <a ui-sref="authentication.signup" title="Sign up" class="btn btn-default">Sign up</a>
+    <a ui-sref="authentication.signin" title="Sign in" class="btn btn-default">Sign in</a>
+  </div>
+  <div ng-if="isAuthenticated()">
+    <a ui-sref="chat.list" title="Let's chat!" class="btn btn-default">Let's chat!</a>
+  </div>
+</section>

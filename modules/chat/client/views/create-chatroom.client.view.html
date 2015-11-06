@@ -1,0 +1,25 @@
+<section ng-controller="ChatRoomController">
+  <div class="page-header">
+    <h1>New Chat Room</h1>
+  </div>
+  <div class="col-md-12">
+    <form name="chatRoomForm" class="form-horizontal" ng-submit="create(chatRoomForm.$valid)" novalidate>
+      <fieldset>
+        <div class="form-group" show-errors>
+          <label for="title">Title</label>
+          <input name="title" type="text" ng-model="title" id="title" class="form-control" placeholder="Title" required>
+          <div ng-messages="chatRoomForm.title.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Chat room title is required.</p>
+          </div>
+        </div>
+        <div class="form-group">
+          <a ui-sref="chat.list" class="btn btn-default">Back</a>
+          <input type="submit" class="btn btn-primary">
+        </div>
+        <div ng-show="error" class="text-danger">
+          <strong ng-bind="error"></strong>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</section>

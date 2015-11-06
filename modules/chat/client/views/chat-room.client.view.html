@@ -1,0 +1,33 @@
+<!-- The chat view -->
+<section class="container" ng-controller="ChatController" ng-init="findOne()">
+  <a ui-sref="chat.list" class="btn btn-default chat-room-goback">Leave Chat Room</a>
+  <div class="page-header">
+    <h1 ng-bind="'#' + chatRoom.title"></h1>
+  </div>
+  
+  <div class="chat-container container">
+    <ul class="list-unstyled col-xs-12 col-md-12 chat-message-list" scroll-glue>
+      <!-- List all messages -->
+      <li class="col-xs-12 col-md-12 chat-message" ng-repeat="message in messages">
+        <small class="pull-right text-muted" ng-bind="message.created | date:'mediumTime'"></small>
+        <img ng-src="{{message.user.profileImageURL}}" alt="{{message.user.username}}" class="pull-left chat-profile-image" />
+        <div class="pull-left chat-message-details">
+          <strong ng-bind="message.user.username"></strong>
+          <br>
+          <span ng-bind="message.text"></span>
+        </div>
+      </li>
+    </ul>
+    <!-- The message form -->
+    <form class="col-xs-12 col-md-12 chat-send-message-form" ng-submit="sendMessage();">
+      <fieldset class="row">
+        <div class="input-group">
+          <input type="text" id="messageText" name="messageText" class="form-control" ng-model="messageText" placeholder="Enter message" autofocus>
+          <span class="input-group-btn">
+            <button type="submit" class="btn btn-primary" ng-disabled="!messageText.length">Submit</button>
+          </span>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</section>

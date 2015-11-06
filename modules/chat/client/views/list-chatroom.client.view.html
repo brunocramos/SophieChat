@@ -1,0 +1,19 @@
+<section ng-controller="ChatRoomController" ng-init="find()">
+  <div class="page-header">
+    <h1>Chat Rooms</h1>
+  </div>
+  <div class="list-group">
+    <a ng-repeat="chatRoom in chatRooms" ui-sref="chat.join({chatRoomId: chatRoom._id})" class="list-group-item">
+      <h4 class="list-group-item-heading" ng-bind="'#' + chatRoom.title"></h4>
+      <small class="list-group-item-text">
+        Created on
+        <span ng-bind="chatRoom.created | date:'mediumDate'"></span>
+        by
+        <span ng-bind="chatRoom.user.displayName"></span>
+      </small>
+    </a>
+  </div>
+  <div class="text-left" ng-if="chatRooms.$resolved">
+    <a ui-sref="chat.create" class="btn btn-primary">Create new room</a>
+  </div>
+</section>
