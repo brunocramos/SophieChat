@@ -12,7 +12,10 @@ angular.module('chat').config(['$stateProvider',
       })
       .state('chat.list', {
         url: '',
-        templateUrl: 'modules/chat/client/views/list-chatroom.client.view.html'
+        templateUrl: 'modules/chat/client/views/list-chatroom.client.view.html',
+        data: {
+          roles: ['user', 'admin']
+        }
       })
       .state('chat.create', {
         url: '/create',
@@ -23,7 +26,10 @@ angular.module('chat').config(['$stateProvider',
       })
       .state('chat.join', {
         url: '/:chatRoomId',
-        templateUrl: 'modules/chat/client/views/chat-room.client.view.html'
+        templateUrl: 'modules/chat/client/views/chat-room.client.view.html',
+        data: {
+          roles: ['user', 'admin']
+        }
       })
       .state('chat.edit', {
         url: '/:chatRoomId/edit',

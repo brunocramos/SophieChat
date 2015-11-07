@@ -20,6 +20,9 @@ exports.invokeRolesPolicies = function () {
     }, {
       resources: '/api/chat/:chatRoomId',
       permissions: '*'
+    }, {
+      resources: '/api/chat-history/:chatRoomId',
+      permissions: '*'
     }]
   }, {
     roles: ['user'],
@@ -28,7 +31,10 @@ exports.invokeRolesPolicies = function () {
       permissions: ['get', 'post']
     }, {
       resources: '/api/chat/:chatRoomId',
-      permissions: ['get']
+      permissions: '*'
+    }, {
+      resources: '/api/chat-history/:chatRoomId',
+      permissions: '*'
     }]
   }, {
     roles: ['guest'],
@@ -37,6 +43,9 @@ exports.invokeRolesPolicies = function () {
       permissions: ['get']
     }, {
       resources: '/api/chat/:chatRoomId',
+      permissions: ['get']
+    }, {
+      resources: '/api/chat-history/:chatRoomId',
       permissions: ['get']
     }]
   }]);
